@@ -1,7 +1,7 @@
 
 # Parallel Matrix Computation in C
 
-### A MIMD performance double-precision floating point matrix computation library  written in C.
+### A MIMD performance floating point matrix computation library  written in C.
 
 Accelerated by multiple-instruction, multiple-data stream to achieve >700x time optimization for matrix powering:
 
@@ -18,7 +18,7 @@ Accelerated by multiple-instruction, multiple-data stream to achieve >700x time 
 `void  transpose(matrix *result, matrix *mat)` 
 
 Description 
-- Store the result transposing `mat` element-wise to `result`
+- Store the result transposing `mat` element-wise to `result`.
 
 Returns
 - None.
