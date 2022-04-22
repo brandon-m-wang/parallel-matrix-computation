@@ -1,7 +1,7 @@
 
 # Parallel Matrix Computation in C
 
-#### A MIMD performance double-precision floating point matrix computation library  written in C.
+### A MIMD performance double-precision floating point matrix computation library  written in C.
 
 Accelerated by multiple-instruction, multiple-data stream to achieve >700x time optimization for matrix powering:
 
@@ -17,80 +17,80 @@ Accelerated by multiple-instruction, multiple-data stream to achieve >700x time 
 
 `void  transpose(matrix *result, matrix *mat)` 
 
-^Description^ 
+Description 
 - Store the result transposing `mat` element-wise to `result`
 
-^Returns^
+Returns
 - None.
 
 `int  allocate_matrix(matrix **mat, int  rows, int  cols)` 
 
-^Description^ 
+Description 
 - Allocates space for a matrix struct pointed to by the double pointer mat with `rows` rows and `cols` columns.
 
-^Returns^
+Returns
 - Returns 0 upon success.
 
 `void  deallocate_matrix(matrix *mat)` 
 
-^Description^ 
+Description 
 - Frees `mat->data` if `mat` is not a slice and has no existing slices, frees `mat->parent->data` if `mat` is the last existing slice of its parent matrix and its parent matrix has no other references (including itself).
 
-^Returns^
+Returns
 - None.
 
 `int  allocate_matrix_ref(matrix **mat, matrix *from, int offset, int rows, int cols)` 
 
-^Description^ 
+Description 
 - Allocates space for a matrix struct pointed to by `mat` with `rows` rows and `cols` columns.
 
-^Returns^
+Returns
 - Returns -1 if either `rows` or `cols` or both have invalid values. Returns -2 if any call to allocate memory in this function fails. Returns 0 upon success.
 
 `void  fill_matrix(matrix *mat, double val)` 
 
-^Description^ 
+Description 
 - Sets all entries in `mat` to `val`. Note that the matrix is in row-major order.
 
-^Returns^
+Returns
 - None.
 
 `int  abs_matrix(matrix *result, matrix *mat)` 
 
-^Description^ 
+Description 
 - Store the result of taking the absolute value element-wise to `result`.
 
-^Returns^
+Returns
 - Returns 0 upon success.
 
 `int  add_matrix(matrix *result, matrix *mat1, matrix *mat2)` 
 
-^Description^ 
+Description 
 - Store the result of adding `mat1` and `mat2` to `result`.
 
-^Returns^
+Returns
 - Returns 0 upon success.
 
 `int  mul_matrix(matrix *result, matrix *mat1, matrix *mat2)` 
 
-^Description^ 
+Description 
 - Store the result of multiplying `mat1` and `mat2` to `result`.
 
-^Returns^
+Returns
 - Returns 0 upon success.
 
 `int  pow_matrix(matrix *result, matrix *mat, int  pow)` 
 
-^Description^ 
+Description 
 - Store the result of raising `mat` to the (`pow`)th power to `result`.
 
-^Returns^
+Returns
 - Returns 0 upon success.
 
 
-#### Benchmarks against naive matrix computation implementations:
+### Benchmarks against naive matrix computation implementations:
 
-| Test Name                 | Dimensional Bounds (100 <= n <= 10000) | Speed-up Factor  (From Naive Implementation) | Correctness  Integration  Test Status |
+| Test Suite                 | Dimensional Bounds (100 <= n <= 10000) | Speed-up Factor  (From Naive Implementation) | Correctness  Integration  Test Status |
 |---------------------------|---------------------------------------|----------------------------------------------|---------------------------------------|
 | Matrix Multiply           | 10000 x 10000                         | 60.078325                                    | PASS                                  |
 | Matrix Powering           | 10000 x 10000                         | 731.851445                                   | PASS                                  |
